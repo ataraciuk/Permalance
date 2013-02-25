@@ -1,63 +1,72 @@
 var Permalance = {};
 
 Permalance.nodes = {
-	{
-		id: 1,
+	'n1': {
 		title: 'Job Interview',
-		to: {2, 3, 4},
+		to: ['n2', 'n3', 'n4'],
 		toLabel: 'Beginning',
 		video: ''
 	},
-	{
-		id: 2,
+	'n2': {
 		title: 'Economic Situation',
-		to: {5, 3, 4},
+		to: ['n5', 'n3', 'n4'],
 		toLabel: 'Why does this happen?',
 		video: ''
 	},
-	{
-		id: 3,
+	'n3': {
 		title: 'Legal Consultation',
-		to: {2, 5, 4},
+		to: ['n2', 'n5', 'n4'],
 		toLabel: 'What does this mean?',
 		video: ''
 	},
-	{
-		id: 4,
+	'n4': {
 		title: 'History of Labor',
-		to: {2, 3, 5},
+		to: ['n2', 'n3', 'n5'],
 		toLabel: 'How did it end like this?',
 		video: ''
 	},
-	{
-		id: 5,
+	'n5': {
 		title: 'Fired!',
-		to: {6, 7},
+		to: ['n6', 'n7'],
 		toLabel: 'Some time later...',
 		video: ''
 	},
-	{
-		id: 6,
+	'n6': {
 		title: 'Legal Options',
-		to: {7, 8},
+		to: ['n7', 'n8'],
 		toLabel: 'What are the legal options?',
 		video: ''
 	},
-	{
-		id: 7,
+	'n7': {
 		title: 'Personal Story',
-		to: {6, 8},
+		to: ['n6', 'n8'],
 		toLabel: 'Personal Story',
 		video: ''
 	},
-	{
-		id: 8,
+	'n8': {
 		title: 'Conclusion',
-		to: {},
+		to: [],
 		toLabel: 'Conclusion',
 		video: ''
 	}
 };
 
+Permalance.init = function(){
+	var container = $('#container');
+	for(key in Permalance.nodes) {
+		var elem = Permalance.nodes[key];
+		var pagefn = doT.template(document.getElementById('videoTmpl').text);
+		var toNodes = [];
+		console.log(elem);
+		for(var i = 0; i < elem.to.length; i++) {
+			var toId = elem.to[i];
+			toNodes.push({id: toId, toLabel: Permalance.nodes[toId].toLabel});
+		}
+		var data = {id: key, title: elem.title, video: elem.video, toNodes: toNodes};
+		container.append(pagefn(data));
+	}
+};
+
 document.addEventListener("DOMContentLoaded", function () {
+	Permalance.init();
 });

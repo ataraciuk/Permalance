@@ -7,8 +7,28 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+	<div id="container">
+	</div>
+
+	<script id="videoTmpl" type="text/x-dot-template">
+		<div id="{{=it.id}}">
+			<h1>{{=it.title}}</h1>
+			<video width="320" height="240" controls>
+				<source src="videos/{{=it.video}}.mp4" type="video/mp4">
+				<source src="videos/{{=it.video}}.ogg" type="video/ogg">
+			</video>
+			<div class="toOverlay">
+			{{~it.toNodes :value:index}}
+				<a href="#{{=value.id}}">{{=value.toLabel}}</a><br/>
+			{{~}}
+			</div>
+		</div>
+	</script>
+
 	<script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/dot.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
