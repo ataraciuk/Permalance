@@ -1,0 +1,11 @@
+#container{
+	position: relative;
+	width:900px;
+	margin:0 auto;
+}
+.node{
+	display:none;
+}
+.toOverlay{
+	display:none;
+}

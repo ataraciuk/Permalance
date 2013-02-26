@@ -9,16 +9,18 @@
 <body>
 
 	<div id="container">
+		<h1>Permalance</h1>
 	</div>
 
 	<script id="videoTmpl" type="text/x-dot-template">
-		<div id="{{=it.id}}">
-			<h1>{{=it.title}}</h1>
-			<video width="320" height="240" controls>
+		<div id="{{=it.id}}" class="node">
+			<h2>{{=it.title}}</h2>
+			<video controls id="video-{{=it.id}}">
 				<source src="videos/{{=it.video}}.mp4" type="video/mp4">
-				<source src="videos/{{=it.video}}.ogg" type="video/ogg">
+				<source src="videos/{{=it.video}}.webm" type="video/webm">
 			</video>
 			<div class="toOverlay">
+				<a href="#{{=it.id}}" class="replay">Replay</a><br/>
 			{{~it.toNodes :value:index}}
 				<a href="#{{=value.id}}">{{=value.toLabel}}</a><br/>
 			{{~}}
