@@ -72,6 +72,14 @@ Permalance.init = function(){
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
 	container.parent().height($(window).height()-10);
+	$('#overlayMain').offset({left: container.parent().offset().left, top:0});
+	$('#timelineBtn').click(function(e){
+		e.preventDefault();
+		var pop = Permalance.fn.getCurrent().popcorn;
+		pop.pause();
+		$('#overlay').show().animate({opacity: 0.5}).click(Permalance.fn.closeOverlay);
+		$('#overlayMain').show().animate({opacity: 1});
+	});
 };
 
 Permalance.vars = {
@@ -94,6 +102,17 @@ Permalance.fn = {
 	onEnd: function(){
 		var nid = this.media.id.substring(6);
 		$('#'+nid+ " .toOverlay").show();
+	},
+	closeOverlay: function(){
+		$('#overlay, #overlayMain').animate(
+			{opacity: 0},{complete: function(){
+				$(this).hide();
+			}
+		});
+	},
+	getCurrent: function(){
+		var playingId = $('.node:visible')[0].id;
+		return Permalance.nodes[playingId];		
 	}
 };
 
