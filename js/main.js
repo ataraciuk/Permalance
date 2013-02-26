@@ -71,6 +71,7 @@ Permalance.init = function(){
 		Permalance.fn.watchNode(this.hash.substring(1));
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
+	container.parent().height($(window).height()-10);
 };
 
 Permalance.vars = {
@@ -85,7 +86,7 @@ Permalance.fn = {
 			var elem = Permalance.nodes[key];
 			var pop = elem.popcorn;
 			pop.pause();
-			//pop.currentTime(0);
+			if(pop.readyState() > 0) pop.currentTime(0);
 		}
 		$('#'+nid).show();
 		Permalance.nodes[nid].popcorn.play();

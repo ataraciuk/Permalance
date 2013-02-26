@@ -1,11 +1,17 @@
-#container{
+#main{
 	position: relative;
 	width:900px;
 	margin:0 auto;
+}
+#container{
+	position: relative;
 }
 .node{
 	display:none;
 }
 .toOverlay{
 	display:none;
+}#timelineBtn{
+	position: absolute;
+	bottom: 0px;
 }
