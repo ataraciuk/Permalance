@@ -90,6 +90,8 @@ Permalance.vars = {
 
 Permalance.fn = {
 	watchNode: function(nid) {
+		$('.yellowBg').removeClass('yellowBg');
+		$('.arrowsandboxes-node-title a[href$="'+nid+'"]').parent().addClass('yellowBg').parent().addClass('yellowBg');
 		$(".toOverlay").hide();
 		$('.node').hide();
 		for(key in Permalance.nodes){
