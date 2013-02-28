@@ -73,13 +73,14 @@ Permalance.init = function(){
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
 	container.parent().height($(window).height()-10);
-	$('#overlayMain').offset({left: container.parent().offset().left, top:0});
-	$('#timelineBtn').click(function(e){
+	$('.overlayMain').offset({left: container.parent().offset().left, top:0});
+	$('.overlayBtn').click(function(e){
+		var overlayId = this.id;
 		e.preventDefault();
 		var pop = Permalance.fn.getCurrent().popcorn;
 		pop.pause();
 		$('#overlay').show().animate({opacity: 0.5}).click(Permalance.fn.closeOverlay);
-		$('#overlayMain').show().animate({opacity: 1});
+		$('.'+overlayId).show().animate({opacity: 1});
 	});
 };
 
@@ -105,7 +106,7 @@ Permalance.fn = {
 		$('#'+nid+ " .toOverlay").show();
 	},
 	closeOverlay: function(){
-		$('#overlay, #overlayMain').hide();
+		$('#overlay, .overlayMain').hide();
 	},
 	getCurrent: function(){
 		var playingId = $('.node:visible')[0].id;
