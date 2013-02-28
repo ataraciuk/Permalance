@@ -79,8 +79,8 @@ Permalance.init = function(){
 		e.preventDefault();
 		var pop = Permalance.fn.getCurrent().popcorn;
 		pop.pause();
-		$('#overlay').show().animate({opacity: 0.5}).click(Permalance.fn.closeOverlay);
-		$('.'+overlayId).show().animate({opacity: 1});
+		$('#overlay').stop().show().animate({opacity: 0.5}).click(Permalance.fn.closeOverlay);
+		$('.'+overlayId).stop().show().animate({opacity: 1});
 	});
 };
 
@@ -106,7 +106,7 @@ Permalance.fn = {
 		$('#'+nid+ " .toOverlay").show();
 	},
 	closeOverlay: function(){
-		$('#overlay, .overlayMain').hide();
+		$('#overlay, .overlayMain').stop().animate({opacity: 0}, {complete: function(){$('#overlay, .overlayMain').hide();}});
 	},
 	getCurrent: function(){
 		var playingId = $('.node:visible')[0].id;
