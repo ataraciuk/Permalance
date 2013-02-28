@@ -66,8 +66,9 @@ Permalance.init = function(){
 		elem['popcorn'] = Popcorn('#video-'+key);
 		elem['popcorn'].on('ended', Permalance.fn.onEnd);
 	}
-	$('.toOverlay a').click(function(e){
+	$('.toOverlay a, .arrowsandboxes-node-title a').click(function(e){
 		e.preventDefault();
+		Permalance.fn.closeOverlay();
 		Permalance.fn.watchNode(this.hash.substring(1));
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
@@ -104,11 +105,7 @@ Permalance.fn = {
 		$('#'+nid+ " .toOverlay").show();
 	},
 	closeOverlay: function(){
-		$('#overlay, #overlayMain').animate(
-			{opacity: 0},{complete: function(){
-				$(this).hide();
-			}
-		});
+		$('#overlay, #overlayMain').hide();
 	},
 	getCurrent: function(){
 		var playingId = $('.node:visible')[0].id;

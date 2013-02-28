@@ -3,21 +3,28 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Permalance</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="http://www.headjump.de/stylesheets/arrowsandboxes.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="main">
 		<h1>Permalance</h1>
 		<div id="container">
 		</div>
-		<a class="btn" href="#" id="timelineBtn">Timeline</a>
+		<a class="btn" href="#" id="timelineBtn">Full Documentary Map</a>
 	</div>
 
 	<div id="overlay">
 	</div>
 	<div id="overlayMain" class="main whiteBg">
-		Here goes the timeline!
+		<h1 id="fullMap">Full Documentary Map</h1>
+		<pre class="arrows-and-boxes"> ()() ({{<a href="#n1" target="_blank">Interview</a>}} >> [e1, e2, e3]) ||
+			(e1:{{<a href="#n2" target="_blank">Economy</a>}} <> [e2] >> [f]) () (e2:{{<a href="#n3" target="_blank">Legal Consultation</a>}} <> [e1, e3] >> [f]) () (e3:{{<a href="#n4" target="_blank">History of Labor</a>}} <> [e2] >> [f])||
+			()() (f:{{<a href="#n5" target="_blank">Fired</a>}} >> [f1, f2]) ||
+			()(f1:{{<a href="#n6" target="_blank">Legal Options</a>}} <> [f2] >>[c]) ()(f2:{{<a href="#n7" target="_blank">Personal Story</a>}} <> [f1] >> [c]) ||
+			()() (c:{{<a href="#n8" target="_blank">Conclusion</a>}})
+		</pre>
 	</div>
 
 
@@ -40,6 +47,8 @@
 
 	<script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://www.headjump.de/javascripts/jquery_wz_jsgraphics.js" type="text/javascript"></script>
+	<script src="http://www.headjump.de/javascripts/arrowsandboxes.js" type="text/javascript"></script>
 	<script src="js/dot.js"></script>
 	<script src="js/main.js"></script>
 </body>
