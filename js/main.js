@@ -96,10 +96,10 @@ Permalance.init = function(){
 						end: link.end,
 						onStart: function(options){
 							Permalance.vars.footlink.children().attr('href', link.to).html(link.text);
-							Permalance.vars.footlink.stop().animate({opacity:1});
+							Permalance.vars.footlink.show().stop().animate({opacity:1});
 						},
 						onEnd: function(options){
-							Permalance.vars.footlink.stop().animate({opacity:0});
+							Permalance.vars.footlink.stop().animate({opacity:0}, {complete: function(){$(this).hide();}});
 						}
 					});
 				}(link);	
@@ -112,8 +112,6 @@ Permalance.init = function(){
 		Permalance.fn.watchNode(this.hash.substring(1));
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
-	container.parent().height($(window).height()-10);
-	//$('.overlayMain').offset({left: container.parent().offset().left, top:0});
 	$('.overlayBtn').click(function(e){
 		var overlayId = this.id;
 		e.preventDefault();
@@ -128,6 +126,9 @@ Permalance.init = function(){
 	});
 	$(document).keyup(function(e){
 		if(e.which == 27) Permalance.fn.closeOverlay();
+	});
+	Permalance.vars.footlink.children('a').click(function(){
+		Permalance.fn.getCurrent().popcorn.pause();
 	});
 };
 
