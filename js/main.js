@@ -5,13 +5,35 @@ Permalance.nodes = {
 		title: 'Job Interview',
 		to: ['n2', 'n3', 'n4'],
 		toLabel: 'Beginning',
-		video: 'video_test'
+		video: 'video_test',
+		links: [
+			{
+				to: 'http://google.com',
+				start: 1,
+				end: 3,
+				text: 'go to google, best search engine in the world'
+			},
+			{
+				to: 'http://jquery.com',
+				start: 4,
+				end: 5,
+				text: 'this is a link to jquery homepage'
+			}
+		]
 	},
 	'n2': {
 		title: 'Economic Situation',
 		to: ['n5', 'n3', 'n4'],
 		toLabel: 'Why does this happen?',
-		video: 'video_test'
+		video: 'video_test',
+		links: [
+			{
+				to: 'http://mozilla.org',
+				start: 1,
+				end: 5,
+				text: 'link in 2nd node'
+			}
+		]
 	},
 	'n3': {
 		title: 'Legal Consultation',
@@ -65,6 +87,24 @@ Permalance.init = function(){
 		container.append(pagefn(data));
 		elem['popcorn'] = Popcorn('#video-'+key);
 		elem['popcorn'].on('ended', Permalance.fn.onEnd);
+		if(typeof elem.links == 'object') {
+			for(var i = 0; i < elem.links.length; i++) {
+				var link = elem.links[i];
+				var f = function(link) {
+					elem['popcorn'].code({
+						start: link.start,
+						end: link.end,
+						onStart: function(options){
+							Permalance.vars.footlink.children().attr('href', link.to).html(link.text);
+							Permalance.vars.footlink.stop().animate({opacity:1});
+						},
+						onEnd: function(options){
+							Permalance.vars.footlink.stop().animate({opacity:0});
+						}
+					});
+				}(link);	
+			}
+		}
 	}
 	$('.toOverlay a, .arrowsandboxes-node-title a').click(function(e){
 		e.preventDefault();
@@ -92,14 +132,15 @@ Permalance.init = function(){
 };
 
 Permalance.vars = {
-	firstNode: 'n1'
+	firstNode: 'n1',
+	footlink: $('.footlink')
 };
 
 Permalance.fn = {
 	watchNode: function(nid) {
 		$('.yellowBg').removeClass('yellowBg');
 		$('.arrowsandboxes-node-title a[href$="'+nid+'"]').parent().addClass('yellowBg').parent().addClass('yellowBg');
-		$(".toOverlay").hide();
+		$(".toOverlay").css('opacity', 0);
 		$('.node').hide();
 		for(key in Permalance.nodes){
 			var elem = Permalance.nodes[key];
@@ -108,11 +149,12 @@ Permalance.fn = {
 			if(pop.readyState() > 0) pop.currentTime(0);
 		}
 		$('#'+nid).show();
+		Permalance.vars.footlink.css('opacity', 0);
 		Permalance.nodes[nid].popcorn.play();
 	},
 	onEnd: function(){
 		var nid = this.media.id.substring(6);
-		$('#'+nid+ " .toOverlay").show();
+		$('#'+nid+ " .toOverlay").stop().animate({opacity: 1});
 	},
 	closeOverlay: function(){
 		$('#overlay, .overlayMain').stop().animate({opacity: 0}, {complete: function(){$('#overlay, .overlayMain').hide();}});
