@@ -73,7 +73,7 @@ Permalance.init = function(){
 	});
 	Permalance.fn.watchNode(Permalance.vars.firstNode);
 	container.parent().height($(window).height()-10);
-	$('.overlayMain').offset({left: container.parent().offset().left, top:0});
+	//$('.overlayMain').offset({left: container.parent().offset().left, top:0});
 	$('.overlayBtn').click(function(e){
 		var overlayId = this.id;
 		e.preventDefault();
@@ -81,6 +81,13 @@ Permalance.init = function(){
 		pop.pause();
 		$('#overlay').stop().show().animate({opacity: 0.5}).click(Permalance.fn.closeOverlay);
 		$('.'+overlayId).stop().show().animate({opacity: 1});
+	});
+	$('.closeCross').click(function(e) {
+		e.preventDefault();
+		Permalance.fn.closeOverlay();
+	});
+	$(document).keyup(function(e){
+		if(e.which == 27) Permalance.fn.closeOverlay();
 	});
 };
 
