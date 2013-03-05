@@ -28,6 +28,9 @@ body{
     padding:10px 0;
     z-index: 2;
 }
+.menu a{
+    margin-right: 10px;
+}
 #overlay, .overlayMain {
     position: fixed;
     top: 0;
@@ -64,11 +67,6 @@ body{
 .mainVideo{
     margin-top: 50px;
     padding-top: 10px;
-}
-#timelineBtn{
-    position: fixed;
-    bottom: 0px;
-    left:10px;
 }
 .overlayMain.timelineBtn {
     background: url('../img/history04.jpg');
