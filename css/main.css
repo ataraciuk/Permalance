@@ -51,12 +51,27 @@ body{
 	background-color: white;
 }
 #mainTitle{
-    padding-top: 50px;
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    left: 10px;
+    margin: 0px;
+    font-size: 40px;
+    line-height: 48px;
+    color: white;
+    text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;
+}
+.mainVideo{
+    margin-top: 50px;
+    padding-top: 10px;
 }
 #timelineBtn{
     position: fixed;
     bottom: 0px;
     left:10px;
+}
+.overlayMain.timelineBtn {
+    background: url('../img/history04.jpg');
 }
 video {
     float: left;
@@ -91,4 +106,28 @@ div.yellowBg {
 }
 .clear{
     clear: both;
+}
+#timeline h1, .closeCross{
+    text-shadow: -1px 0 white, 0 1px white,
+      1px 0 white, 0 -1px white;
+    color:red;   
+}
+#timeline ul{
+    margin: 0px;
+}
+#timeline li{
+    list-style-type: none;
+    color: orange;
+    margin-bottom: 20px;
+    text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black;
+    background: black;
+    border: white;
+    width: 48%;
+    border-radius:5px;
+    padding: 2px 1%;
+    border:1px solid white;
+}
+#timeline li:nth-child(even) {
+    margin-left:50%;
 }
