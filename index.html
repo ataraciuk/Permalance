@@ -94,10 +94,10 @@
 				<source src="videos/{{=it.video}}.mp4" type="video/mp4">
 				<source src="videos/{{=it.video}}.webm" type="video/webm">
 			</video>
-			<div class="toOverlay">
+			<div class="toOverlay alert alert-info">
 				<a href="#{{=it.id}}" class="replay">Replay</a><br/>
 			{{~it.toNodes :value:index}}
-				<a href="#{{=value.id}}">{{=value.toLabel}}</a><br/>
+				<a href="#{{=value.id}}" class="">{{=value.toLabel}}</a><br/>
 			{{~}}
 			</div>
 			<div class="clear"></div>
