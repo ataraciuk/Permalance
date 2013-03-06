@@ -4,7 +4,7 @@ Permalance.nodes = {
 	'n1': {
 		title: 'Job Interview',
 		to: ['n2', 'n3', 'n4'],
-		toLabel: 'Beginning',
+		toLabel: 'Start Over',
 		video: 'video_test',
 		links: [
 			{
@@ -75,7 +75,7 @@ Permalance.nodes = {
 	},
 	'n8': {
 		title: 'Conclusion',
-		to: [],
+		to: ['n1'],
 		toLabel: 'Conclusion',
 		video: 'video_test'
 	}
