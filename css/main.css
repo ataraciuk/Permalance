@@ -143,3 +143,12 @@ div.yellowBg {
 #timeline li:nth-child(even) {
     margin-left:50%;
 }
+.backgroundDiv{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+.backgroundDiv > div{
+    overflow: visible;
+}

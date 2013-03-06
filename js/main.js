@@ -39,7 +39,15 @@ Permalance.nodes = {
 		title: 'Legal Consultation',
 		to: ['n2', 'n5', 'n4'],
 		toLabel: 'What does this mean?',
-		video: 'video_test'
+		video: 'video_test',
+		links: [
+			{
+				to: 'http://nymag.com/news/intelligencer/topic/intern-poll-2012-4/',
+				start: 1,
+				end: 5,
+				text: 'the link Rose asked to remember'
+			}
+		]
 	},
 	'n4': {
 		title: 'History of Labor',
@@ -130,11 +138,28 @@ Permalance.init = function(){
 	Permalance.vars.footlink.children('a').click(function(){
 		Permalance.fn.getCurrent().popcorn.pause();
 	});
+
+	setInterval(function(){
+		var h = $(window).height() - 50;
+		var w = $(window).width();
+		var r = w / h;
+		var useW = false;
+		Permalance.vars.bg.height(h).width(w);
+		
+		if(r < Permalance.vars.bgRatio) w = Math.round(h * Permalance.vars.bgRatio);
+		//else w = Math.round(h * Permalance.vars.bgRatio);
+		//console.log(w / h);
+		Permalance.vars.bg.children().width(w).children().attr({width: w});
+		
+	},
+	500);
 };
 
 Permalance.vars = {
 	firstNode: 'n1',
-	footlink: $('.footlink')
+	footlink: $('.footlink'),
+	bgRatio: 2000 / 1200,
+	bg: $('.backgroundDiv')
 };
 
 Permalance.fn = {
