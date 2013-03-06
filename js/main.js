@@ -140,7 +140,7 @@ Permalance.init = function(){
 	});
 
 	setInterval(function(){
-		var h = $(window).height() - 50;
+		var h = $(window).height();
 		var w = $(window).width();
 		var r = w / h;
 		var useW = false;

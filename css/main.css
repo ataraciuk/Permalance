@@ -46,10 +46,11 @@ body{
     position: fixed;
     top:0px;
     text-align: right;
-    background-color: black;
+    background-color: rgba(0,0,0,0.5);
     width: 100%;
     padding:10px 0;
     z-index: 2;
+    border-bottom: 1px solid black;
 }
 .menu a{
     margin-right: 10px;
@@ -85,7 +86,7 @@ body{
     font-size: 40px;
     line-height: 48px;
     color: white;
-    text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 .mainVideo{
     margin-top: 50px;
@@ -155,7 +156,7 @@ div.yellowBg {
     margin-left:50%;
 }
 .backgroundDiv{
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     overflow: hidden;
