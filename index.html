@@ -100,7 +100,7 @@
 				<source src="videos/{{=it.video}}.webm" type="video/webm">
 			</video>
 			<div class="toOverlay alert alert-info">
-				<a href="#{{=it.id}}" class="replay">Replay</a><br/>
+				<a href="#{{=it.id}}" class="replay visited">Replay</a><br/>
 			{{~it.toNodes :value:index}}
 				<a href="#{{=value.id}}" class="to-{{=value.id}}">{{=value.toLabel}}</a><br/>
 			{{~}}
