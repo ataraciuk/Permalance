@@ -5,7 +5,7 @@ Permalance.nodes = {
 		title: 'Job Interview',
 		to: ['n2', 'n3', 'n4'],
 		toLabel: 'Start Over',
-		video: 'video_test',
+		video: 'intro',
 		links: [
 			{
 				to: 'http://google.com',
@@ -27,7 +27,7 @@ Permalance.nodes = {
 		title: 'Economic Situation',
 		to: ['n5', 'n3', 'n4'],
 		toLabel: 'Why does this happen?',
-		video: 'video_test',
+		video: 'economy',
 		links: [
 			{
 				to: 'http://mozilla.org',
@@ -42,7 +42,7 @@ Permalance.nodes = {
 		title: 'Legal Consultation',
 		to: ['n2', 'n5', 'n4'],
 		toLabel: 'What does this mean?',
-		video: 'video_test',
+		video: 'law',
 		links: [
 			{
 				to: 'http://nymag.com/news/intelligencer/topic/intern-poll-2012-4/',
