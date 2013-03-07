@@ -167,6 +167,7 @@ Permalance.fn = {
 		$('.yellowBg').removeClass('yellowBg');
 		$('.arrowsandboxes-node-title a[href$="'+nid+'"]').parent().addClass('yellowBg').parent().addClass('yellowBg');
 		$(".toOverlay").css('opacity', 0);
+		$('.to-'+nid).addClass('visited');
 		$('.node').hide();
 		for(key in Permalance.nodes){
 			var elem = Permalance.nodes[key];
