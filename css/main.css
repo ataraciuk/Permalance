@@ -123,7 +123,7 @@ div.yellowBg {
     -moz-opacity:0;
     -khtml-opacity: 0;
     opacity: 0;
-    margin-top: -60px;
+    margin-top: -82px;
     position: absolute;
     z-index: 2;
     left: 20px;
@@ -131,6 +131,9 @@ div.yellowBg {
 }
 .footlink a{
     color: white;
+}
+.footlink a.bigger{
+    font-size: 22px;
 }
 .footlink a:hover{
     color: #0bf;

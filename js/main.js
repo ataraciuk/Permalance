@@ -11,13 +11,15 @@ Permalance.nodes = {
 				to: 'http://google.com',
 				start: 1,
 				end: 3,
-				text: 'go to google, best search engine in the world'
+				text: 'go to google, best search engine in the world',
+				name: 'John Doe'
 			},
 			{
 				to: 'http://jquery.com',
 				start: 4,
 				end: 5,
-				text: 'this is a link to jquery homepage'
+				text: 'this is a link to jquery homepage',
+				name: 'John Doe'
 			}
 		]
 	},
@@ -31,7 +33,8 @@ Permalance.nodes = {
 				to: 'http://mozilla.org',
 				start: 1,
 				end: 5,
-				text: 'link in 2nd node'
+				text: 'link in 2nd node',
+				name: 'John Doe'
 			}
 		]
 	},
@@ -45,7 +48,8 @@ Permalance.nodes = {
 				to: 'http://nymag.com/news/intelligencer/topic/intern-poll-2012-4/',
 				start: 1,
 				end: 5,
-				text: 'the link Rose asked to remember'
+				text: 'the link Rose asked to remember',
+				name: 'John Doe'
 			}
 		]
 	},
@@ -103,7 +107,8 @@ Permalance.init = function(){
 						start: link.start,
 						end: link.end,
 						onStart: function(options){
-							Permalance.vars.footlink.children().attr('href', link.to).html(link.text);
+							Permalance.vars.footlink
+								.children('a').attr('href', link.to).html(link.text).filter('.bigger').html(link.name);
 							Permalance.vars.footlink.show().stop().animate({opacity:1});
 						},
 						onEnd: function(options){
