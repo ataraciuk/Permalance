@@ -95,10 +95,12 @@
 	<script id="videoTmpl" type="text/x-dot-template">
 		<div id="{{=it.id}}" class="node">
 			<h2>{{=it.title}}</h2>
-			<video controls id="video-{{=it.id}}">
-				<source src="videos/{{=it.video}}.mp4" type="video/mp4">
-				<source src="videos/{{=it.video}}.webm" type="video/webm">
-			</video>
+			<div class="videoOverlay alert">
+				<video controls id="video-{{=it.id}}">
+					<source src="videos/{{=it.video}}.mp4" type="video/mp4">
+					<source src="videos/{{=it.video}}.webm" type="video/webm">
+				</video>
+			</div>
 			<div class="toOverlay alert alert-info">
 				<a href="#{{=it.id}}" class="replay visited">Replay</a><br/>
 			{{~it.toNodes :value:index}}

@@ -29,6 +29,11 @@ body{
     background-color: rgba(0,0,0,0.5);
     border-color: black;    
 }
+.videoOverlay {
+    background-color: rgba(0,0,0,0.5);
+    border-color: black;
+    float: left;
+}
 .toOverlay a{
     display: inline-block;
     background: url('../img/arrows.png') no-repeat 0 0;
@@ -102,9 +107,6 @@ body{
 .overlayMain.timelineBtn {
     background: url('../img/history04.jpg');
 }
-video {
-    float: left;
-}
 div.yellowBg {
     background-color: yellow;
 }
@@ -123,10 +125,10 @@ div.yellowBg {
     -moz-opacity:0;
     -khtml-opacity: 0;
     opacity: 0;
-    margin-top: -82px;
+    margin-top: -115px;
     position: absolute;
     z-index: 2;
-    left: 20px;
+    left: 30px;
     text-shadow: black 0.1em 0.1em 0.2em;
 }
 .footlink a{
