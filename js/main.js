@@ -79,11 +79,19 @@ Permalance.nodes = {
 	},
 	'n8': {
 		title: 'Conclusion',
-		to: ['n1'],
+		to: [],
 		toLabel: 'Conclusion',
 		video: 'video_test'
 	}
 };
+
+Permalance.tree = [
+	[null, null, 'n1'],
+	['n2', null, 'n3', null, 'n4'],
+	[null, null, 'n5'],
+	[null, 'n6', null, 'n7'],
+	[null, null, 'n8']
+];
 
 Permalance.init = function(){
 	var container = $('#container');
@@ -94,6 +102,9 @@ Permalance.init = function(){
 		for(var i = 0; i < elem.to.length; i++) {
 			var toId = elem.to[i];
 			toNodes.push({id: toId, toLabel: Permalance.nodes[toId].toLabel});
+		}
+		if (toNodes.length == 0) {
+			toNodes.push({id: Permalance.vars.firstNode , toLabel: Permalance.nodes[Permalance.vars.firstNode].toLabel});
 		}
 		var data = {id: key, title: elem.title, video: elem.video, toNodes: toNodes};
 		container.append(pagefn(data));
@@ -119,12 +130,7 @@ Permalance.init = function(){
 			}
 		}
 	}
-	$('.toOverlay a, .arrowsandboxes-node-title a').click(function(e){
-		e.preventDefault();
-		Permalance.fn.closeOverlay();
-		Permalance.fn.watchNode(this.hash.substring(1));
-	});
-	Permalance.fn.watchNode(Permalance.vars.firstNode);
+	Permalance.fn.makeTree();
 	$('.overlayBtn').click(function(e){
 		var overlayId = this.id;
 		e.preventDefault();
@@ -149,13 +155,9 @@ Permalance.init = function(){
 		var w = $(window).width();
 		var r = w / h;
 		var useW = false;
-		Permalance.vars.bg.height(h).width(w);
-		
+		Permalance.vars.bg.height(h).width(w);	
 		if(r < Permalance.vars.bgRatio) w = Math.round(h * Permalance.vars.bgRatio);
-		//else w = Math.round(h * Permalance.vars.bgRatio);
-		//console.log(w / h);
-		Permalance.vars.bg.children().width(w).children().attr({width: w});
-		
+		Permalance.vars.bg.children().width(w).children().attr({width: w});		
 	},
 	500);
 };
@@ -194,6 +196,36 @@ Permalance.fn = {
 	getCurrent: function(){
 		var playingId = $('.node:visible')[0].id;
 		return Permalance.nodes[playingId];		
+	},
+	makeTree: function(){
+		var txt = '';
+		var first = true;
+		for(var i = 0; i < Permalance.tree.length; i++) {
+			if(!first) txt += ' || ';
+			first = false;
+			for(var j = 0; j < Permalance.tree[i].length; j++) {
+				var elem = Permalance.tree[i][j];
+				if(elem === null) txt += ' () ';
+				else {
+					txt += ' ('+elem+':{{<a href="#' + elem + '" target="_blank">'+Permalance.nodes[elem].title+'</a>}} ';
+					if(Permalance.nodes[elem].to.length > 0) {
+						txt += '>> [' + Permalance.nodes[elem].to.join() + ']';
+					}
+					txt += ') ';
+				}
+			}
+		}
+		$('pre.arrows-and-boxes').html(txt);
+		jQuery.getScript('http://www.headjump.de/javascripts/arrowsandboxes.js', function(){
+			setTimeout(function(){
+				Permalance.fn.watchNode(Permalance.vars.firstNode);
+				$('.toOverlay a, .arrowsandboxes-node-title a').click(function(e){
+					e.preventDefault();
+					Permalance.fn.closeOverlay();
+					Permalance.fn.watchNode(this.hash.substring(1));
+				});
+			},100);
+		});
 	}
 };
 
