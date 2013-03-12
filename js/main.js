@@ -2,39 +2,39 @@ var Permalance = {};
 
 Permalance.nodes = {
 	'n1': {
-		title: 'Job Interview',
+		title: 'Introduction',
 		to: ['n2', 'n3', 'n4'],
 		toLabel: 'Start Over',
 		video: 'intro',
 		links: [
 			{
-				to: 'http://google.com',
-				start: 1,
-				end: 3,
-				text: 'go to google, best search engine in the world',
-				name: 'John Doe'
-			},
-			{
-				to: 'http://jquery.com',
-				start: 4,
-				end: 5,
-				text: 'this is a link to jquery homepage',
-				name: 'John Doe'
+				to: 'http://www.outtengolden.com/',
+				start: 8,
+				end: 15,
+				text: 'A recognized firm in the field of employment law',
+				name: 'Outen Golden'
 			}
 		]
 	},
 	'n2': {
-		title: 'Economic Situation',
+		title: 'MTV Strike',
 		to: ['n5', 'n3', 'n4'],
-		toLabel: 'Why does this happen?',
-		video: 'economy',
+		toLabel: 'Do people complain in the streets?',
+		video: 'strike',
 		links: [
 			{
-				to: 'http://mozilla.org',
+				to: 'http://www.contactmusic.com/news/mtv-workers-on-strike_1053238',
 				start: 1,
-				end: 5,
-				text: 'link in 2nd node',
-				name: 'John Doe'
+				end: 10,
+				text: 'Media coverage of strike',
+				name: 'contactmusic.com'
+			},
+			{
+				to: 'http://fruitsofourlabour.blogspot.com/2007/12/striking-mtv-workers-workers-win.html',
+				start: 21,
+				end: 30,
+				text: 'The striking workers won a partial victory',
+				name: 'fruitsofourlabour.blogspot.com'
 			}
 		]
 	},
@@ -78,10 +78,26 @@ Permalance.nodes = {
 		video: 'video_test'
 	},
 	'n8': {
-		title: 'Conclusion',
+		title: 'Comparison',
 		to: [],
-		toLabel: 'Conclusion',
-		video: 'video_test'
+		toLabel: 'Comparison of in-house and freelancing',
+		video: 'comparison',
+		links: [
+			{
+				to: 'http://ca.linkedin.com/pub/terese-brasen-abc/17/75/a37',
+				start: 1,
+				end: 10,
+				text: 'Manager Internal Communications and Engagement, Alberta Energy',
+				name: 'Terese Brasen'
+			},
+			{
+				to: 'http://en.wikipedia.org/wiki/Internal_communications',
+				start: 15,
+				end: 24,
+				text: 'Function responsible for effective communication or trade among participants',
+				name: 'Internal communications'
+			}
+		]
 	}
 };
 
