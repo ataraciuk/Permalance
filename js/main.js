@@ -17,7 +17,7 @@ Permalance.nodes = {
 		]
 	},
 	'n2': {
-		title: 'MTV Strike',
+		title: 'MTV Demonstration',
 		to: ['n5', 'n3', 'n4'],
 		toLabel: 'Do people complain in the streets?',
 		video: 'strike',
@@ -26,38 +26,38 @@ Permalance.nodes = {
 				to: 'http://www.contactmusic.com/news/mtv-workers-on-strike_1053238',
 				start: 1,
 				end: 10,
-				text: 'Media coverage of strike',
-				name: 'contactmusic.com'
+				text: 'December 12, 2007',
+				name: 'Freelancers demonstrating'
 			},
 			{
 				to: 'http://fruitsofourlabour.blogspot.com/2007/12/striking-mtv-workers-workers-win.html',
 				start: 21,
 				end: 30,
 				text: 'The striking workers won a partial victory',
-				name: 'fruitsofourlabour.blogspot.com'
+				name: 'Result'
 			}
 		]
 	},
 	'n3': {
-		title: 'Legal Consultation',
+		title: 'Obama Speech',
 		to: ['n2', 'n5', 'n4'],
-		toLabel: 'What does this mean?',
-		video: 'law',
+		toLabel: 'What does Obama think about middle-class security?',
+		video: 'obama-security',
 		links: [
 			{
-				to: 'http://nymag.com/news/intelligencer/topic/intern-poll-2012-4/',
+				to: 'http://www.whitehouse.gov/administration/president-obama',
 				start: 1,
-				end: 5,
-				text: 'the link Rose asked to remember',
-				name: 'John Doe'
+				end: 10,
+				text: 'Labor Day Address. Detroit, MI. September 5, 2011.',
+				name: 'President Obama'
 			}
 		]
 	},
 	'n4': {
-		title: 'History of Labor',
+		title: 'Economy Now',
 		to: ['n2', 'n3', 'n5'],
-		toLabel: 'How did it end like this?',
-		video: 'video_test'
+		toLabel: 'Is the economy getting better?',
+		video: 'economy-better'
 	},
 	'n5': {
 		title: 'Fired!',
