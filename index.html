@@ -96,10 +96,17 @@
 		<div id="{{=it.id}}" class="node">
 			<h2>{{=it.title}}</h2>
 			<div class="videoOverlay alert">
+				{{? it.video }}
 				<video controls id="video-{{=it.id}}">
 					<source src="videos/{{=it.video}}.mp4" type="video/mp4">
 					<source src="videos/{{=it.video}}.webm" type="video/webm">
 				</video>
+				{{??}}
+				<audio controls id="video-{{=it.id}}">
+					<source src="audio/{{=it.audio}}.m4a" type="video/mp4">
+					<source src="audio/{{=it.video}}.ogg" type="video/webm">
+				</video>
+				{{?}}
 			</div>
 			<div class="toOverlay alert alert-info">
 				<a href="#{{=it.id}}" class="replay visited">Replay</a><br/>

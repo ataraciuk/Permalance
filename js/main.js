@@ -3,7 +3,7 @@ var Permalance = {};
 Permalance.nodes = {
 	'n1': {
 		title: 'Introduction',
-		to: ['n2', 'n3', 'n4'],
+		to: ['n5', 'n6'],
 		toLabel: 'Start Over',
 		video: 'intro',
 		links: [
@@ -16,9 +16,22 @@ Permalance.nodes = {
 			}
 		]
 	},
+	'n5': {
+		title: 'Permalancer Kevin',
+		to: ['n2', 'n3', 'n4', 'n6'],
+		toLabel: 'Permalancer Kevin Personal Story',
+		audio: 'Permalance_Kevin'
+
+	},
+	'n6': {
+		title: 'Permalancer Dillon',
+		to: ['n2', 'n3', 'n4', 'n5'],
+		toLabel: 'Permalancer Dillon Personal Story',
+		audio: 'Permalance_Dillon'
+	},
 	'n2': {
 		title: 'MTV Demonstration',
-		to: ['n5', 'n3', 'n4'],
+		to: ['n8', 'n3', 'n4'],
 		toLabel: 'Do people complain in the streets?',
 		video: 'strike',
 		links: [
@@ -40,7 +53,7 @@ Permalance.nodes = {
 	},
 	'n3': {
 		title: 'Obama Speech',
-		to: ['n2', 'n5', 'n4'],
+		to: ['n2', 'n4', 'n8'],
 		toLabel: 'What does Obama think about middle-class security?',
 		video: 'obama-security',
 		links: [
@@ -55,7 +68,7 @@ Permalance.nodes = {
 	},
 	'n4': {
 		title: 'US Economy Now',
-		to: ['n2', 'n3', 'n5'],
+		to: ['n2', 'n3', 'n8'],
 		toLabel: 'Is the economy getting better?',
 		video: 'economy-better',
 		links: [
@@ -88,18 +101,6 @@ Permalance.nodes = {
 				name: 'Fiscal Multiplier'
 			}
 		]
-	},
-	'n5': {
-		title: 'Fired!',
-		to: ['n6', 'n7'],
-		toLabel: 'Some time later...',
-		video: 'video_test'
-	},
-	'n6': {
-		title: 'Legal Options',
-		to: ['n7', 'n8'],
-		toLabel: 'What are the legal options?',
-		video: 'video_test'
 	},
 	'n7': {
 		title: 'Personal Story',
@@ -152,7 +153,7 @@ Permalance.init = function(){
 		if (toNodes.length == 0) {
 			toNodes.push({id: Permalance.vars.firstNode , toLabel: Permalance.nodes[Permalance.vars.firstNode].toLabel});
 		}
-		var data = {id: key, title: elem.title, video: elem.video, toNodes: toNodes};
+		var data = {id: key, title: elem.title, video: elem.video, toNodes: toNodes, audio: elem.audio};
 		container.append(pagefn(data));
 		elem['popcorn'] = Popcorn('#video-'+key);
 		elem['popcorn'].on('ended', Permalance.fn.onEnd);
