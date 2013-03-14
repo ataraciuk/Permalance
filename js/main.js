@@ -18,20 +18,20 @@ Permalance.nodes = {
 	},
 	'n5': {
 		title: 'Permalancer Kevin',
-		to: ['n9', 'n10', 'n11','n6'],
+		to: ['n9', 'n10', 'n6'],
 		toLabel: 'Permalancer Kevin Personal Story',
 		audio: 'Permalance_Kevin'
 
 	},
 	'n6': {
 		title: 'Permalancer Dillon',
-		to: ['n9', 'n10', 'n11', 'n5'],
+		to: ['n9', 'n10', 'n5'],
 		toLabel: 'Permalancer Dillon Personal Story',
 		audio: 'Permalance_Dillon'
 	},
 	'n2': {
 		title: 'MTV Demonstration',
-		to: ['n8', 'n3', 'n4'],
+		to: ['n8', 'n4'],
 		toLabel: 'Do people complain in the streets?',
 		video: 'strike',
 		links: [
@@ -53,7 +53,7 @@ Permalance.nodes = {
 	},
 	'n3': {
 		title: 'Obama Speech',
-		to: ['n2', 'n4', 'n8'],
+		to: ['n2', 'n4', 'n11'],
 		toLabel: 'What does Obama think about middle-class security?',
 		video: 'obama-security',
 		links: [
@@ -68,7 +68,7 @@ Permalance.nodes = {
 	},
 	'n4': {
 		title: 'US Economy Now',
-		to: ['n2', 'n3', 'n8'],
+		to: ['n2', 'n8'],
 		toLabel: 'Is the economy getting better?',
 		video: 'economy-better',
 		links: [
@@ -126,19 +126,19 @@ Permalance.nodes = {
 	},
 	'n9': {
 		title: 'Interview with artist',
-		to: ['n10', 'n11', 'n2', 'n3', 'n4'],
-		toLabel: 'Interview with artist',
+		to: ['n10', 'n11', 'n3'],
+		toLabel: 'Interview with an artist',
 		video: 'Art01b'
 	},
 	'n10': {
 		title: 'Interview with Lawyer',
-		to: ['n9', 'n11', 'n2', 'n3', 'n4'],
-		toLabel: 'Interview with Lawyer',
+		to: ['n9', 'n11', 'n3'],
+		toLabel: 'Interview with a lawyer',
 		video: 'laborlawyer01'
 	},
 	'n11': {
 		title: 'Legal Options',
-		to: ['n10', 'n9', 'n2', 'n3', 'n4'],
+		to: ['n2', 'n3', 'n4'],
 		toLabel: 'What are the legal options?',
 		video: 'Legal'
 	},
@@ -153,8 +153,9 @@ Permalance.nodes = {
 Permalance.tree = [
 	[null, null, 'n1'],
 	[null, 'n5', null, 'n6'],
-	['n9', null, 'n10', null, 'n11'],
-	['n2', null, 'n3', null, 'n4'],
+	[null,'n9', null, 'n10'],
+	[null,'n3', null, 'n11'],
+	[null, 'n2', null, 'n4'],
 	[null, null, 'n8'],
 	[null, null, 'n12'],
 ];
