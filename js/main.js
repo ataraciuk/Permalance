@@ -54,10 +54,40 @@ Permalance.nodes = {
 		]
 	},
 	'n4': {
-		title: 'Economy Now',
+		title: 'US Economy Now',
 		to: ['n2', 'n3', 'n5'],
 		toLabel: 'Is the economy getting better?',
-		video: 'economy-better'
+		video: 'economy-better',
+		links: [
+			{
+				to: 'http://en.wikipedia.org/wiki/Gross_domestic_product',
+				start: 12,
+				end: 17,
+				text: 'Gross Domestic Product',
+				name: 'GDP'
+			},
+			{
+				to: 'http://en.wikipedia.org/wiki/Real_GDP',
+				start: 18,
+				end: 25,
+				text: 'Real Gross Domestic Product',
+				name: 'Real GDP: growth without inflation'
+			},
+			{
+				to: 'http://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita',
+				start: 52,
+				end: 60,
+				text: 'GDP divided by average population',
+				name: 'Per capita GDP'
+			},
+			{
+				to: 'http://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita',
+				start: 117,
+				end: 130,
+				text: 'Multiplier Effect',
+				name: 'Fiscal Multiplier'
+			}
+		]
 	},
 	'n5': {
 		title: 'Fired!',
