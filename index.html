@@ -97,14 +97,14 @@
 			<h2>{{=it.title}}</h2>
 			<div class="videoOverlay alert">
 				{{? it.video }}
-				<video controls id="video-{{=it.id}}">
+				<video controls id="video-{{=it.id}}" width="800">
 					<source src="videos/{{=it.video}}.mp4" type="video/mp4">
 					<source src="videos/{{=it.video}}.webm" type="video/webm">
 				</video>
 				{{??}}
 				<audio controls id="video-{{=it.id}}">
-					<source src="audio/{{=it.audio}}.m4a" type="video/mp4">
-					<source src="audio/{{=it.video}}.ogg" type="video/webm">
+					<source src="audio/{{=it.audio}}.m4a" type="audio/mpeg">
+					<source src="audio/{{=it.audio}}.ogg" type="audio/ogg">
 				</video>
 				{{?}}
 			</div>

@@ -18,14 +18,14 @@ Permalance.nodes = {
 	},
 	'n5': {
 		title: 'Permalancer Kevin',
-		to: ['n2', 'n3', 'n4', 'n6'],
+		to: ['n9', 'n10', 'n11','n6'],
 		toLabel: 'Permalancer Kevin Personal Story',
 		audio: 'Permalance_Kevin'
 
 	},
 	'n6': {
 		title: 'Permalancer Dillon',
-		to: ['n2', 'n3', 'n4', 'n5'],
+		to: ['n9', 'n10', 'n11', 'n5'],
 		toLabel: 'Permalancer Dillon Personal Story',
 		audio: 'Permalance_Dillon'
 	},
@@ -102,15 +102,9 @@ Permalance.nodes = {
 			}
 		]
 	},
-	'n7': {
-		title: 'Personal Story',
-		to: ['n6', 'n8'],
-		toLabel: 'Personal Story',
-		video: 'video_test'
-	},
 	'n8': {
 		title: 'Comparison',
-		to: [],
+		to: ['n12'],
 		toLabel: 'Comparison of in-house and freelancing',
 		video: 'comparison',
 		links: [
@@ -129,15 +123,40 @@ Permalance.nodes = {
 				name: 'Internal communications'
 			}
 		]
+	},
+	'n9': {
+		title: 'Interview with artist',
+		to: ['n10', 'n11', 'n2', 'n3', 'n4'],
+		toLabel: 'Interview with artist',
+		video: 'Art01b'
+	},
+	'n10': {
+		title: 'Interview with Lawyer',
+		to: ['n9', 'n11', 'n2', 'n3', 'n4'],
+		toLabel: 'Interview with Lawyer',
+		video: 'laborlawyer01'
+	},
+	'n11': {
+		title: 'Legal Options',
+		to: ['n10', 'n9', 'n2', 'n3', 'n4'],
+		toLabel: 'What are the legal options?',
+		video: 'Legal'
+	},
+	'n12': {
+		title: 'Conclusion',
+		to: [],
+		toLabel: 'Start Over',
+		video: 'Conclusionb'
 	}
 };
 
 Permalance.tree = [
 	[null, null, 'n1'],
+	[null, 'n5', null, 'n6'],
+	['n9', null, 'n10', null, 'n11'],
 	['n2', null, 'n3', null, 'n4'],
-	[null, null, 'n5'],
-	[null, 'n6', null, 'n7'],
-	[null, null, 'n8']
+	[null, null, 'n8'],
+	[null, null, 'n12'],
 ];
 
 Permalance.init = function(){
